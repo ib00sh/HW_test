@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Runner {
     public static void main(String[] args) {
-        Random rand = new Random();
+
         ArrayProcessor arrayProcessor = new ArrayProcessor();
         int[] array = new int[]{-4,4,8,0,-5,1,8,5,2,7,5,5,6,0,7,-1,-7,-6,-2,9};
         int[] arrayCopy = new int[array.length];
@@ -11,9 +11,7 @@ public class Runner {
         int[] arrayCopy3 = new int[array.length];
         int[] arrayCopy4 = new int[array.length];
 
-//        for (int i = 0; i < array.length; i++) {
-//            array[i] = rand.nextInt(30 + 10) - 10;
-//        }
+
         System.out.println("Original array: ");
         display(array);
         System.arraycopy(array,0,arrayCopy,0,array.length);

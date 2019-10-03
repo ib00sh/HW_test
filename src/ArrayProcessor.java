@@ -75,20 +75,14 @@ public class ArrayProcessor {
         for (int i = 0; i < input.length; i++) {
             temp = input[i];
             for (int j = i + 1; j < input.length ; j++) {
-                if ((i % 2 != 0) && (j % 2 != 0) && (input[j] == temp)){
-                    System.out.print("\t" + temp );
-                    i++;
-                }
-                else if ((i % 2 == 0) && (j % 2 != 0) && (input[j] == temp)){
-                    System.out.print("\t" + temp );
-                    i++;
-                }
-                else if ((i % 2 != 0) && (j % 2 == 0) && (input[j] == temp)){
-                    System.out.print("\t" + temp );
+                if (((i % 2 != 0) && (j % 2 != 0) && (input[j] == temp)) ||
+                      ((i % 2 == 0) && (j % 2 != 0) && (input[j] == temp)) ||
+                      ((i % 2 != 0) && (j % 2 == 0) && (input[j] == temp))) {
+                    System.out.print("\t" + temp);
+                    j++;
                     i++;
                 }
             }
-
         }
         System.out.println();
         return input;
