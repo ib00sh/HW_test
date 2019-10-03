@@ -1,28 +1,29 @@
 public class ArrayProcessor {
     public int[] swapMaxNegativeAndMinPositiveElements(int[] input) {
-        int max = input[0], min = input[0];
-        int maxPos = 0, minPos = 0;
-        for (int i = 1; i < input.length; i++) {
-            if (max > input[i]) {
-                max = input[i];
-                maxPos = i;
+        int maxNegative = Integer.MIN_VALUE;
+        int minPositive = Integer.MAX_VALUE;
+        int positive = 0;
+        int negative = 0;
+        for (int i = 0; i < input.length; i++) {
+            if ((input[i] < 0) && (maxNegative < input[i])) {
+                maxNegative = input[i];
+                positive = i;
             }
-            if (min < input[i]) {
-                min = input[i];
-                minPos = i;
+            if ((input[i] > 0) && (minPositive > input[i])) {
+                minPositive = input[i];
+                negative = i;
             }
         }
-
-        int swap = input[maxPos];
-        input[maxPos] = input[minPos];
-        input[minPos] = swap;
+        int swap = input[negative];
+        input[negative] = input[positive];
+        input[positive] = swap;
         return input;
     }
 
     public int countSumOfElementsOnEvenPositions(int[] input) {
         int sum = 0;
         for (int i = 0; i < input.length; i++) {
-            if (input[i] % 2 == 0) {
+            if (i % 2 == 0) {
                 sum += input[i];
             }
         }
@@ -37,13 +38,13 @@ public class ArrayProcessor {
         return input;
     }
     public int[] multiplyByThreeEachPositiveElementStandingBeforeNegative(int[] input) {
-        for (int i = 0; i < input.length; i++) {
-            if (input[i] < 0) {
+        for (int i = 0; i < input.length-1; i++) {
+            if (input[i] > 0 && input[i+1] < 0) {
                 if(i ==0){
                     input[i]*=3;
                 }
                 else {
-                    input[i - 1] *= 3;
+                    input[i] *= 3;
                 }
             }
         }
@@ -51,20 +52,43 @@ public class ArrayProcessor {
     }
 
     public float calculateDifferenceBetweenAverageAndMinElement(int[] input) {
-            int min = input[0];
-            for (int i = 0; i < input.length; i++) {
-                if (input[i] < min) {
-                    min = input[i];
-                }
-            }
-            return min;
+        int sum = 0;
+        float average;
+        int min = input[0];
+        for (int i = 0; i < input.length; i++) {
+           sum += input[i];
+        }
+        average = (float) sum / input.length;
+        for (int i = 0; i < input.length; i++) {
+         if (input[i] < min) {
+             min = input[i];
+         }
+    }
+    float difference = average - min;
+    return difference;
     }
 
+
+
     public int[] findSameElementsStandingOnOddPositions(int[] input) {
+        int temp;
         for (int i = 0; i < input.length; i++) {
-            if (i % 2 == 0){
-                System.out.print(" " + input[i] + " ,");
+            temp = input[i];
+            for (int j = i + 1; j < input.length ; j++) {
+                if ((i % 2 != 0) && (j % 2 != 0) && (input[j] == temp)){
+                    System.out.print("\t" + temp );
+                    i++;
+                }
+                else if ((i % 2 == 0) && (j % 2 != 0) && (input[j] == temp)){
+                    System.out.print("\t" + temp );
+                    i++;
+                }
+                else if ((i % 2 != 0) && (j % 2 == 0) && (input[j] == temp)){
+                    System.out.print("\t" + temp );
+                    i++;
+                }
             }
+
         }
         System.out.println();
         return input;
