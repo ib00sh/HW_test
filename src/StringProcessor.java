@@ -93,18 +93,19 @@ public class StringProcessor {
          */
         public String findWordConsistingOfDigits(String[] words) {
             int position = 2;
+            String digitalValueStr = null;
             for (int i = 0; i < words.length; i++) {
                 try {
                     int tryInt = Integer.parseInt(words[i]);
                     if(--position > 0){
                         continue;
                     }
-                    return  String.valueOf(tryInt);
+                    digitalValueStr = String.valueOf(tryInt);
                 }
                 catch (NumberFormatException ex){
                 }
             }
-            return null;
+            return digitalValueStr;
         }
 
 }
