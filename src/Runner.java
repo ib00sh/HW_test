@@ -36,90 +36,91 @@ public class Runner {
 //        arrayProcessor.findSameElementsStandingOnOddPositions(arrayCopy4);
 
 
-        StringProcessor stringProcessor = new StringProcessor();
-        System.out.print("Specify amount of lines: ");
-
-        Scanner sc1 = new Scanner(System.in);
-        String str = sc1.nextLine();
-        String[] arrayStr = new String[Integer.parseInt(str)];
-        System.out.println("----------");
-        for (int i = 0; i < arrayStr.length; i++) {
-            System.out.print("Input line " + (i+1) + ") ");
-             arrayStr[i] = sc1.nextLine();
-        }
-        sc1.close();
-        display(arrayStr);
-        System.out.println("----------");
-
-        System.out.println("1) Shortest Line is - " + stringProcessor.findShortestLine(arrayStr));
-        System.out.println("2) Longest Line is - " + stringProcessor.findLongestLine(arrayStr));
-        System.out.print("3) Lines shorter than average length: - ");
-        stringProcessor.findLinesShorterThanAverageLength(arrayStr);
-        System.out.print("4) Lines longer than average length: - ");
-        stringProcessor.findLinesLongerThanAverageLength(arrayStr);
-        System.out.print("5) Word with minimum various characters: - ");
-        System.out.println(stringProcessor.findWordWithMinimumVariousCharacters(arrayStr));
-        System.out.print("6) Word contains only various characters: - ");
-        System.out.println(stringProcessor.findWordConsistingOfVariousCharacters(arrayStr));
-        System.out.print("7) Word contains only digits: - ");
-        System.out.println(stringProcessor.findWordConsistingOfDigits(arrayStr));
-
-//        Calculator calculator = new Calculator();
+//        StringProcessor stringProcessor = new StringProcessor();
+//        System.out.print("Specify amount of lines: ");
+//
 //        Scanner sc1 = new Scanner(System.in);
-//        String str;
-//        Double a;
-//        Double b;
-//        Boolean flag = true;
-//        while (flag == true) {
-//        System.out.println("Enter the first number: ");
-//        str = sc1.nextLine();
-//        a = Double.parseDouble(str);
-//        System.out.println("Enter the second number: ");
-//        str = sc1.nextLine();
-//        b = Double.parseDouble(str);
-//        System.out.println("Enter operator (+, -, *, /):");
-//        str = sc1.nextLine();
-//            switch (str) {
-//                case ("+"):
-//                    System.out.println("Result:\t" + calculator.add(a, b));
-//                    break;
-//                case ("-"):
-//                    System.out.println("Result:\t" + calculator.subtract(a, b));
-//                    break;
-//                case ("*"):
-//                    System.out.println("Result:\t" + calculator.multiply(a, b));
-//                    break;
-//                case ("/"):
-//                    System.out.println("Result:\t" + calculator.div(a, b));
-//                    break;
-//                 default:
-//            }
-//            System.out.println("Do you want to continue? (Y/N)");
-//            str = sc1.nextLine();
-//            if (str.equalsIgnoreCase("Y")){
-//                flag = true;
-//            } else if ((str.equalsIgnoreCase("N"))) {
-//                flag = false;
-//                System.out.println("Bye");
-//            } else {
-//                System.out.println("Wrong character!");
-//            }
+//        String str = sc1.nextLine();
+//        String[] arrayStr = new String[Integer.parseInt(str)];
+//        System.out.println("----------");
+//        for (int i = 0; i < arrayStr.length; i++) {
+//            System.out.print("Input line " + (i+1) + ") ");
+//             arrayStr[i] = sc1.nextLine();
 //        }
+//        sc1.close();
+//        display(arrayStr);
+//        System.out.println("----------");
+//
+//        System.out.println("1) Shortest Line is - " + stringProcessor.findShortestLine(arrayStr));
+//        System.out.println("2) Longest Line is - " + stringProcessor.findLongestLine(arrayStr));
+//        System.out.print("3) Lines shorter than average length: - ");
+//        stringProcessor.findLinesShorterThanAverageLength(arrayStr);
+//        System.out.print("4) Lines longer than average length: - ");
+//        stringProcessor.findLinesLongerThanAverageLength(arrayStr);
+//        System.out.print("5) Word with minimum various characters: - ");
+//        System.out.println(stringProcessor.findWordWithMinimumVariousCharacters(arrayStr));
+//        System.out.print("6) Word contains only various characters: - ");
+//        System.out.println(stringProcessor.findWordConsistingOfVariousCharacters(arrayStr));
+//        System.out.print("7) Word contains only digits: - ");
+//        System.out.println(stringProcessor.findWordConsistingOfDigits(arrayStr));
+
+        Calculator calculator = new Calculator();
+        Scanner sc1 = new Scanner(System.in);
+        String str;
+        Double a;
+        Double b;
+        Boolean flag = true;
+        while (flag == true) {
+        System.out.println("Enter the first number: ");
+        str = sc1.nextLine();
+        a = Double.parseDouble(str);
+        System.out.println("Enter the second number: ");
+        str = sc1.nextLine();
+        b = Double.parseDouble(str);
+        System.out.println("Enter operator (+, -, *, /):");
+        str = sc1.nextLine();
+            switch (str) {
+                case "+":
+                    System.out.println("Result:\t" + calculator.add(a, b));
+                    break;
+                case "-":
+                    System.out.println("Result:\t" + calculator.subtract(a, b));
+                    break;
+                case "*":
+                    System.out.println("Result:\t" + calculator.multiply(a, b));
+                    break;
+                case "/":
+                    System.out.println("Result:\t" + calculator.div(a, b));
+                    break;
+                default:
+                    //Если человек не ввел операции
+            }
+            System.out.println("Do you want to continue? (Y/N)");
+            str = sc1.nextLine();
+            if (str.equalsIgnoreCase("Y")){
+                flag = true;
+            } else if ((str.equalsIgnoreCase("N"))) {
+                flag = false;
+                System.out.println("Bye");
+            } else {
+                System.out.println("Wrong character!");
+            }
+        }
 
 
 }
 //
-//    public static void display(int[] array){
-//        for (int i = 0; i < array.length; i++) {
-//            System.out.print("\t" + array[i] + " ");
-//        }
-//        System.out.println();
-//    }
-public static void display(String[] array){
+    public static void display(int[] array){
         for (int i = 0; i < array.length; i++) {
             System.out.print("\t" + array[i] + " ");
         }
         System.out.println();
     }
+//public static void display(String[] array){
+//        for (int i = 0; i < array.length; i++) {
+//            System.out.print(array[i] + "\t");
+//        }
+//        System.out.println();
+//    }
 
 }
