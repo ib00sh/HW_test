@@ -1,47 +1,45 @@
 public class StringProcessor {
     /**
-     *  Useful methods for string processing
+     * Useful methods for string processing
      */
-        public String findShortestLine(String[] lines) {
-            String shorestLine = lines[0];
-            for(int i = 0; i < lines.length ; i++)
-            {
-                if (lines[i].length() < shorestLine.length())
-                {
-                    shorestLine = lines[i];
-                }
+    public String findShortestLine(String[] lines) {
+        String shorestLine = lines[0];
+        for (int i = 0; i < lines.length; i++) {
+            if (lines[i].length() < shorestLine.length()) {
+                shorestLine = lines[i];
             }
-            return shorestLine + " (length is " + shorestLine.length() + ")";
         }
+        return shorestLine;
+    }
 
-        public String findLongestLine(String[] lines) {
-            String longestLine = lines[0];
-            for (int i = 0; i < lines.length; i++) {
-                if(lines[i].length() > longestLine.length()){
-                    longestLine = lines[i];
-                }
+    public String findLongestLine(String[] lines) {
+        String longestLine = lines[0];
+        for (int i = 0; i < lines.length; i++) {
+            if (lines[i].length() > longestLine.length()) {
+                longestLine = lines[i];
             }
-            return longestLine + " (length is " + longestLine.length() + ")";
         }
-
-        public String[] findLinesShorterThanAverageLength(String[] lines) {
-            int averageLength = getAverageLength(lines);
-            for (int i = 0; i < lines.length ; i++) {
-                if (lines[i].length() < averageLength){
-                    System.out.print(lines[i] + " (length is " + lines[i].length() + ") \n");
-                }
-            }
-            return  lines;
-        }
+        return longestLine;
+    }
 
     public int getAverageLength(String[] lines) {
         int sum = 0;
         int averageLength;
         for (int i = 0; i < lines.length; i++) {
-            sum += lines[i].length();
+            sum+=lines[i].length();
         }
         averageLength = sum / lines.length;
         return averageLength;
+    }
+
+    public String[] findLinesShorterThanAverageLength(String[] lines) {
+        int averageLength = getAverageLength(lines);
+        for (int i = 0; i < lines.length; i++) {
+            if (lines[i].length() < averageLength) {
+                System.out.print(lines[i] + " (length is " + lines[i].length() + ") \n");
+            }
+        }
+        return lines;
     }
 
     public String[] findLinesLongerThanAverageLength(String[] lines) {
@@ -56,13 +54,17 @@ public class StringProcessor {
 
         /**
          * Find word with minimum various characters. Return first word if there are a few of such words.
-         * @param words Input array of words
+         *  @param words Input array of words
          * @return First word that consist of minimum amount of various characters
          */
+        public static long countUniqueCharacters(String input) {
+            return input.chars().distinct().count();
+        }
+
         public String findWordWithMinimumVariousCharacters(String[] words) {
             String minVariousCh = null;
             for (int i = 1; i < words.length; i++) {
-                if (words[i-1].length() > words[i].chars().distinct().count() ) {
+                if (words[i-1].length() > countUniqueCharacters(words[i])) {
                     minVariousCh = words[i-1];
                     break;
                 }

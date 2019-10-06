@@ -40,6 +40,7 @@ public class ArrayProcessor {
     public int[] multiplyByThreeEachPositiveElementStandingBeforeNegative(int[] input) {
         for (int i = 0; i < input.length-1; i++) {
             if (input[i] > 0 && input[i+1] < 0) {
+                //перпроверить if
                 if(i ==0){
                     input[i]*=3;
                 }

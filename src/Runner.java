@@ -1,9 +1,13 @@
-import java.io.IOException;
-import java.util.Random;
-import java.util.Scanner;
-
 public class Runner {
     public static void main(String[] args) {
+
+       StringProcessor stringProcessor = new StringProcessor();
+       ViewStringPorcessor viewStringPorcessor = new ViewStringPorcessor();
+       viewStringPorcessor.inputArray();
+       viewStringPorcessor.getResult(stringProcessor);
+
+
+
 
 //        ArrayProcessor arrayProcessor = new ArrayProcessor();
 //        int[] array = new int[]{-4,4,8,0,-5,1,8,5,2,7,5,5,6,0,7,-1,-7,-6,-2,9};
@@ -64,63 +68,63 @@ public class Runner {
 //        System.out.print("7) Word contains only digits: - ");
 //        System.out.println(stringProcessor.findWordConsistingOfDigits(arrayStr));
 
-        Calculator calculator = new Calculator();
-        Scanner sc1 = new Scanner(System.in);
-        String str;
-        Double a;
-        Double b;
-        Boolean flag = true;
-        while (flag == true) {
-        System.out.println("Enter the first number: ");
-        str = sc1.nextLine();
-        a = Double.parseDouble(str);
-        System.out.println("Enter the second number: ");
-        str = sc1.nextLine();
-        b = Double.parseDouble(str);
-        System.out.println("Enter operator (+, -, *, /):");
-        str = sc1.nextLine();
-            switch (str) {
-                case "+":
-                    System.out.println("Result:\t" + calculator.add(a, b));
-                    break;
-                case "-":
-                    System.out.println("Result:\t" + calculator.subtract(a, b));
-                    break;
-                case "*":
-                    System.out.println("Result:\t" + calculator.multiply(a, b));
-                    break;
-                case "/":
-                    System.out.println("Result:\t" + calculator.div(a, b));
-                    break;
-                default:
-                    //Если человек не ввел операции
-            }
-            System.out.println("Do you want to continue? (Y/N)");
-            str = sc1.nextLine();
-            if (str.equalsIgnoreCase("Y")){
-                flag = true;
-            } else if ((str.equalsIgnoreCase("N"))) {
-                flag = false;
-                System.out.println("Bye");
-            } else {
-                System.out.println("Wrong character!");
-            }
-        }
+//        Calculator calculator = new Calculator();
+//        Scanner sc1 = new Scanner(System.in);
+//        String str;
+//        Double a;
+//        Double b;
+//        Boolean flag = true;
+//        while (flag == true) {
+//        System.out.println("Enter the first number: ");
+//        str = sc1.nextLine();
+//        a = Double.parseDouble(str);
+//        System.out.println("Enter the second number: ");
+//        str = sc1.nextLine();
+//        b = Double.parseDouble(str);
+//        System.out.println("Enter operator (+, -, *, /):");
+//        str = sc1.nextLine();
+//            switch (str) {
+//                case "+":
+//                    System.out.println("Result:\t" + calculator.add(a, b));
+//                    break;
+//                case "-":
+//                    System.out.println("Result:\t" + calculator.subtract(a, b));
+//                    break;
+//                case "*":
+//                    System.out.println("Result:\t" + calculator.multiply(a, b));
+//                    break;
+//                case "/":
+//                    System.out.println("Result:\t" + calculator.div(a, b));
+//                    break;
+//                default:
+//                    //Если человек не ввел операции
+//            }
+//            System.out.println("Do you want to continue? (Y/N)");
+//            str = sc1.nextLine();
+//            if (str.equalsIgnoreCase("Y")){
+//                flag = true;
+//            } else if ((str.equalsIgnoreCase("N"))) {
+//                flag = false;
+//                System.out.println("Bye");
+//            } else {
+//                System.out.println("Wrong character!");
+//            }
+//        }
 
 
-}
-//
-    public static void display(int[] array){
-        for (int i = 0; i < array.length; i++) {
-            System.out.print("\t" + array[i] + " ");
-        }
-        System.out.println();
-    }
+//}
+////
+//    public static void display(int[] array){
+//        for (int i = 0; i < array.length; i++) {
+//            System.out.print("\t" + array[i] + " ");
+//        }
+//        System.out.println();
+//    }
 //public static void display(String[] array){
 //        for (int i = 0; i < array.length; i++) {
 //            System.out.print(array[i] + "\t");
 //        }
 //        System.out.println();
 //    }
-
+    }
 }
